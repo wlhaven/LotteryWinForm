@@ -93,12 +93,19 @@ namespace Lottery
             if (!listView1.Items.Count.Equals(0))
             {
                 //call method to prompt user for printing.
-                MessageBox.Show("Please make your printer ready", "Warning!");
-                CaptureScreen();
+                DialogResult d = MessageBox.Show("Please ready your printer", "Printer Settings",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+                if (d == DialogResult.Cancel)
+                {
+                    return;
+                }
+                else
+                {
+                    CaptureScreen();
+                }
             }
             else
             {
-                MessageBox.Show("Nothing to print!", "Error!");
+                MessageBox.Show("Nothing to print!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
                 return;
             }
