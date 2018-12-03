@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lottery
@@ -30,6 +25,12 @@ namespace Lottery
             try
             {
                 var num_boards = int.Parse(textBox1.Text);
+                if(num_boards <=0)
+                {
+                    MessageBox.Show("Input must be > 0", "Error!");
+                    textBox1.Clear();
+                    return;
+                }
                 for (int index = 0; index < num_boards; index++)
                 {
                     for (int i = 0; i < SIZE; i++)
@@ -69,6 +70,8 @@ namespace Lottery
             catch
             {
                 MessageBox.Show("Input must be a number", "Error!");
+                textBox1.Clear();
+                textBox1.Focus();
             }
             
         }
@@ -86,9 +89,15 @@ namespace Lottery
             return (false);
         }
 
-        private void clearButton_Click(object sender, EventArgs e) => listView1.Items.Clear();
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            textBox1.Clear();
+            textBox1.Focus();
+        }
 
-        private void printNumbersButton_Click(object sender, EventArgs e)
+
+        private void PrintNumbersButton_Click(object sender, EventArgs e)
         {
             if (!listView1.Items.Count.Equals(0))
             {
@@ -131,7 +140,7 @@ namespace Lottery
             }
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void PrintDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             //print the current page.  Only good for the current page. If listview 
             //contains more records than shown on the page, you dont see those records.

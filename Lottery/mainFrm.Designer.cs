@@ -128,7 +128,7 @@
             this.printNumbersButton.TabIndex = 3;
             this.printNumbersButton.Text = "Print ";
             this.printNumbersButton.UseVisualStyleBackColor = true;
-            this.printNumbersButton.Click += new System.EventHandler(this.printNumbersButton_Click);
+            this.printNumbersButton.Click += new System.EventHandler(this.PrintNumbersButton_Click);
             // 
             // textBox1
             // 
@@ -145,24 +145,24 @@
             this.clearButton.TabIndex = 4;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // printDocument1
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1_PrintPage);
             // 
-            // Form1
+            // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(809, 450);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.printNumbersButton);
             this.Controls.Add(this.generateNumbersButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "mainFrm";
             this.Text = "Lottery Number Generator";
             this.ResumeLayout(false);
             this.PerformLayout();
